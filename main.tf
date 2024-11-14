@@ -134,6 +134,8 @@ resource "aws_db_instance" "primary_db" {
   multi_az = false
   publicly_accessible = false
   skip_final_snapshot = true
+  backup_retention_period   = 7                         # Keep backups for 7 days
+  backup_window             = "03:00-04:00"             # Optional: specify backup window
 }
 
 # Subnet Group for Replica DB
