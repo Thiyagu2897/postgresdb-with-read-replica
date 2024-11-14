@@ -133,7 +133,8 @@ resource "aws_db_instance" "primary_db" {
   vpc_security_group_ids = [aws_security_group.primary_db_sg.id]
   multi_az = false
   publicly_accessible = false
-  skip_final_snapshot = true
+  skip_final_snapshot = false
+  final_snapshot_identifier = "read-replica-final-snapshot"
   backup_retention_period   = 7                         # Keep backups for 7 days
   backup_window             = "03:00-04:00"             # Optional: specify backup window
 }
